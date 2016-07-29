@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid gray;
+      padding: 2px 5px;
+      text-align: center;
+    }
+    button {
+    	
+}
+    	#inputForm {
+    	display:none
+    }
+      </style>
+
+
+	<script src="https://cdn.jsdelivr.net/lodash/4.14.1/lodash.min.js"></script>
+</head>
+<body>
+
+<h1>Lodash practice</h1>
+
+<div id="grid-holder"></div>
+<button onclick=showShort()>Short version</button>
+<button onclick=showFull()>Full version</button>
+<button onclick=inputShow()>Input</button>
+<button onclick=showMin()>Show with min Houses</button>
+<button onclick=showMax()>Show with max Houses</button>
+
+<div id="inputForm">
+<ul>
+	<li>
+		<label>Type id</label>
+<input type="input" id="idIn">
+	</li>
+	<li>
+		<label>Type city</label>
+<input type="input" id="cityIn">
+	</li>
+	<li>
+		<label>Type street</label>
+<input type="input" id="streetIn">
+	</li>
+	<li>
+		<label>Type countOfHouses</label>
+<input type="input" id="countOfHousesIn">
+	</li>
+		<li>
+		<button onclick=submit()>submit</button>
+	</li>
+</ul>
+</div>
+
+
+
+	
+	<script id="grid-template" type="text/template">
+		 <h1>Full version</h1>
+		 <table>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>city</th>
+          <th>street</th>
+          <th>countOfHouses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i = 0; i < list.length; i++) { %>
+          <tr>
+            <td>
+              <%=list[i].id%>
+            </td>
+            <td>
+              <%=list[i].city%>
+            </td>
+            <td>
+              <%=list[i].street%>
+            </td>
+            <td>
+              <%=list[i].countOfHouses%>
+            </td>
+            <td>
+             <button onclick=deleteOb()>Delete</button>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>	  
+  </script>
+
+<script id="grid-template-short" type="text/template">
+		 <h1>Short version</h1>
+		 <table>
+      <thead>
+        <tr>
+          
+          <th>city</th>
+          <th>street</th>
+          <th>countOfHouses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i = 0; i < list.length; i++) { %>
+          <tr>
+            <td>
+              <%=list[i].city%>
+            </td>
+            <td>
+              <%=list[i].street%>
+            </td>
+            <td>
+              <%=list[i].countOfHouses%>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>	  
+  </script>
+
+
+ 
+
+
+
+
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
