@@ -3,10 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <style>
+    body {text-align: center;}
     table {
       border-collapse: collapse;
     }
+    th {text-align: center;}
 
     td {
       border: 1px solid gray;
@@ -14,122 +21,137 @@
       text-align: center;
     }
     button {
-    	
-}
-    	#inputForm {
+      margin : 10px;
+      
+    }
+    #inputForm {
     	display:none
     }
-      </style>
+  </style>
 
 
-	<script src="https://cdn.jsdelivr.net/lodash/4.14.1/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/lodash/4.14.1/lodash.min.js"></script>
 </head>
 <body>
 
-<h1>Lodash practice</h1>
-
-<div id="grid-holder"></div>
-<button onclick=showShort()>Short version</button>
-<button onclick=showFull()>Full version</button>
-<button onclick=inputShow()>Input</button>
-<button onclick=showMin()>Show with min Houses</button>
-<button onclick=showMax()>Show with max Houses</button>
-
-<div id="inputForm">
-<ul>
-	<li>
-		<label>Type id</label>
-<input type="input" id="idIn">
-	</li>
-	<li>
-		<label>Type city</label>
-<input type="input" id="cityIn">
-	</li>
-	<li>
-		<label>Type street</label>
-<input type="input" id="streetIn">
-	</li>
-	<li>
-		<label>Type countOfHouses</label>
-<input type="input" id="countOfHousesIn">
-	</li>
-		<li>
-		<button onclick=submit()>submit</button>
-	</li>
-</ul>
-</div>
+  <div class="well well-lg">
+    <h1>Lodash practice</h1>
+    <p></p>
+    
+  </div>
 
 
+  <div id="grid-holder"></div>
+  <div class="btn-group" role="group" aria-label="...">
+    <button class="btn btn-primary" onclick=showShort()>Short version</button>
+    <button class="btn btn-primary" onclick=showFull()>Full version</button>
+  </div>
+  <br>
+  <div class="btn-group" role="group" aria-label="...">
+    <button class="btn btn-warning" onclick=showMin()>Show with min Houses</button>
+    <button class="btn btn-warning" onclick=showMax()>Show with max Houses</button>
+  </div>
+  <br>
+  <button class="btn btn-info" onclick=inputShow()>Input</button>
 
-	
-	<script id="grid-template" type="text/template">
-		 <h1>Full version</h1>
-		 <table>
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>city</th>
-          <th>street</th>
-          <th>countOfHouses</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for(var i = 0; i < list.length; i++) { %>
-          <tr>
-            <td>
-              <%=list[i].id%>
-            </td>
-            <td>
-              <%=list[i].city%>
-            </td>
-            <td>
-              <%=list[i].street%>
-            </td>
-            <td>
-              <%=list[i].countOfHouses%>
-            </td>
-            <td>
-             <button onclick=deleteOb()>Delete</button>
-            </td>
-          </tr>
-          <% } %>
-      </tbody>
-    </table>	  
-  </script>
+  <div id="inputForm">
+    
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Type id</span>
+      <input type="text" class="form-control" id="idIn" placeholder="ID" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Type city</span>
+      <input type="text" class="form-control" id="cityIn" placeholder="CITY" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Type street</span>
+      <input type="text" class="form-control" id="streetIn" placeholder="STREET" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Type Houses</span>
+      <input type="text" class="form-control" id="countOfHousesIn" placeholder="HOUSES" aria-describedby="basic-addon1">
+    </div>
+    <button class="btn btn-success"onclick=submit()>submit</button>
+    
+    
+  </div>
+
+
+
+
+  <script id="grid-template" type="text/template">
+   <h1>Full version</h1>
+   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>city</th>
+        <th>street</th>
+        <th>countOfHouses</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i = 0; i < list.length; i++) { %>
+      <tr>
+        <td>
+          <%=list[i].id%>
+        </td>
+        <td>
+          <%=list[i].city%>
+        </td>
+        <td>
+          <%=list[i].street%>
+        </td>
+        <td>
+          <%=list[i].countOfHouses%>
+        </td>
+        <td>
+         <button  class="btn btn-danger delete">Delete</button>
+       </td>
+     </tr>
+     <% } %>
+   </tbody>
+ </table>	  
+</script>
 
 <script id="grid-template-short" type="text/template">
-		 <h1>Short version</h1>
-		 <table>
-      <thead>
-        <tr>
-          
-          <th>city</th>
-          <th>street</th>
-          <th>countOfHouses</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for(var i = 0; i < list.length; i++) { %>
-          <tr>
-            <td>
-              <%=list[i].city%>
-            </td>
-            <td>
-              <%=list[i].street%>
-            </td>
-            <td>
-              <%=list[i].countOfHouses%>
-            </td>
-          </tr>
-          <% } %>
-      </tbody>
-    </table>	  
-  </script>
+ <h1>Short version</h1>
+ <table class="table table-hover">
+  <thead>
+    <tr>
+
+      <th>city</th>
+      <th>street</th>
+      <th>countOfHouses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(var i = 0; i < list.length; i++) { %>
+    <tr>
+      <td>
+        <%=list[i].city%>
+      </td>
+      <td>
+        <%=list[i].street%>
+      </td>
+      <td>
+        <%=list[i].countOfHouses%>
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>	  
+</script>
 
 
- 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
 <script type="text/javascript" src="script.js"></script>
