@@ -64,11 +64,15 @@ function showMin() {
  var partNew=[];
  min=part[0];
  minH=part[0].countOfHouses;
+ console.log(min);
+ console.log(minH);
  for (var i=0;i<part.length;i++){
   if (part[i].countOfHouses<minH)
   {
    minH=part[i].countOfHouses;
-   max=part[i];
+   min=part[i];
+   console.log(min);
+    console.log(minH);
  }
 }
 partNew.push(min);
