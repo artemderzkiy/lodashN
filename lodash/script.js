@@ -60,36 +60,44 @@ function inputShow() {
 }
 
 
+
+
 function showMin() {
- var partNew=[];
- min=part[0];
- minH=part[0].countOfHouses;
- console.log(min);
- console.log(minH);
- for (var i=0;i<part.length;i++){
-  if (part[i].countOfHouses<minH)
-  {
-   minH=part[i].countOfHouses;
-   min=part[i];
-   console.log(min);
-    console.log(minH);
- }
-}
-partNew.push(min);
+  var partNew=[];
+
+var min=_.minBy(part,'countOfHouses');
+//  min=part[0];
+//  minH=part[0].countOfHouses;
+//  console.log(min);
+//  console.log(minH);
+//  for (var i=0;i<part.length;i++){
+//   if (part[i].countOfHouses<minH)
+//   {
+//    minH=part[i].countOfHouses;
+//    min=part[i];
+//    console.log(min);
+//     console.log(minH);
+//  }
+// }
+ partNew.push(min);
 temlpateGen(partNew);
-}
+ }
+
+
+
 
 function showMax() {
  var partNew=[];
- maxH=part[0].countOfHouses;
- max=part[0];
- for (var i=0;i<part.length;i++){
-  if (part[i].countOfHouses>maxH)
-  {
-   maxH=part[i].countOfHouses;
-   max=part[i];
- }
-}
+ max=_.maxBy(part, 'countOfHouses');
+//  maxH=part[0].countOfHouses;
+//  max=part[0];
+//  for (var i=0;i<part.length;i++){
+//   if (part[i].countOfHouses>maxH)
+//   {
+//    maxH=part[i].countOfHouses;
+//    max=part[i];
+//  }
+// }
 partNew.push(max);
 temlpateGen(partNew);
 }
